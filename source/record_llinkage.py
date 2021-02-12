@@ -106,7 +106,7 @@ def is_pair(r1, r2):
 # Load ltable.ID, rtable.ID and class_label from labeled_data.csv
 label_class = {}
 line_num = 1
-correct_labeled_pair = 0
+correct_labeled_pair = 0  # 256
 with open('../movies2/csv_files/labeled_data.csv', 'r') as file:
     reader = csv.reader(file)
     for row in reader:
@@ -119,16 +119,16 @@ with open('../movies2/csv_files/labeled_data.csv', 'r') as file:
 
 # %%
 # TODO: Is that ok to just hard-code all pair numbers?
-all_pair_num = 99178317
-blocked_pair_num = 0
-correct_blocked_pair = 0
-correct_blocked_labeled_pair = 0
+all_pair = 99178317
+blocked_pair = 0  # 3546214
+correct_blocked_pair = 0  # 21762
+correct_blocked_labeled_pair = 0  # 240
 with open('../Xirui_Zhong_hw03_blocked.csv', 'w', newline='') as file:
     for r_imdb, r_tmd, in rltk.get_record_pairs(ds_imdb, ds_tmd, block=block):
         # Output blocked data to a csv file with no header
         writer = csv.writer(file)
         writer.writerow((r_imdb.id, r_tmd.id))
-        blocked_pair_num += 1  # pairs in the blocking
+        blocked_pair += 1  # pairs in the blocking
 
         if is_pair(r_imdb, r_tmd):
             correct_blocked_pair += 1
@@ -140,7 +140,9 @@ with open('../Xirui_Zhong_hw03_blocked.csv', 'w', newline='') as file:
 
 # TODO: is Reduction ratio correct?
 print('Reduction ratio is:')
-print(1 - blocked_pair_num / all_pair_num)
+print(1 - blocked_pair / all_pair)
+# Pair completeness is calculated as: |number of matches after blocking| / |number of matches|. So you don't want to
+# include non-matched pairs when calculating pair completeness.
 print('pairs completeness is:')
 print(correct_blocked_labeled_pair / correct_labeled_pair)
 
