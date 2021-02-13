@@ -8,6 +8,13 @@ Because I think 'year' is an useful field for blocking and 'title' for a movie i
 
 I choose to use 'year' as blocking because two movies from some year are more likely to be the same movie. Although I can use 'title' as well, I think block with 'year' field is easier to implement and it is efficient.
 
+```
+Reduction ratio is:
+0.9642440595155491
+pairs completeness is:
+0.9928
+```
+
 
 
 # Task 1.3
