@@ -1,0 +1,25 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix my_ns: <http://inf558.org/myfakenamespace#> .
+
+#### Production Company Class ####
+my_ns:productionCompany a schema:Class ;
+    rdfs:subClassOf schema:Organization .
+my_ns:writers a schema:Property ;
+    rdfs:subPropertyOf schema:name .
+
+#### Movie Class ####
+my_ns:Movie a schema:Class ;
+    rdfs:subClassOf schema:Movie ;
+    schema:productionCompany my_ns:productionCompany ;
+    schema:title xsd:Name ;
+    schema:datePublished xsd:gYear ;
+    schema:directors xsd:Name ;
+    my_ns:writers xsd:Name ;
+    schema:actors xsd:Name .
+
+
+

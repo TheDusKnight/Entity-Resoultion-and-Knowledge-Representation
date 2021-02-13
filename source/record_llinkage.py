@@ -208,7 +208,6 @@ def is_director_token_pair(r1, r2):
 
 
 # Scoring function to combine field similarities
-# TODO: improve
 def rule_based_method(r_1, r_2):
     THRESHOLD = 1
     score_1 = is_name_pair(r_1, r_2)
@@ -273,3 +272,7 @@ print('fn:', len(trial.false_negatives_list))
 
 
 # %%
+
+
+
+

@@ -16,3 +16,10 @@ my_ns:Movie a schema:Class ;
     # TODO: complete the rest of the missing attributes
     schema:productionCompany my_ns:productionCompany ;
     schema:datePublished xsd:date .
+
+# tmd.csv
+# ID,title,year,director(s),writer(s),actor(s)
+# imdb_clean.csv
+# ID,name,year,director,writers,actors
+# labeled_data.csv
+# _id,ltable.ID,rtable.ID,ltable.title,ltable.year,rtable.title,rtable.year,class_label
